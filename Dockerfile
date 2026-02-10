@@ -1,5 +1,5 @@
-# Use a CUDA-enabled base image from RunPod to ensure driver compatibility
-FROM runpod/pytorch:2.0.1-py3.10-cuda11.8.0
+# Use a known working CUDA-enabled base image from previous demo
+FROM runpod/pytorch:0.7.0-cu1241-torch240-ubuntu2004
 
 WORKDIR /app
 
@@ -21,3 +21,4 @@ RUN chmod +x start.sh
 
 # 5. Start
 CMD ["./start.sh"]
+
