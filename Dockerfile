@@ -7,6 +7,10 @@ WORKDIR /app
 # We use the official install script
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
+# Pre-pull the model (Bake into image)
+# We start the server in the background, wait for it, pull, and then the layer freezes with the model data.
+RUN nohup bash -c "ollama serve &" && sleep 5 && ollama pull glm-4.7-flash:latest
+
 # Install system dependencies (if needed)
 RUN apt-get update && apt-get install -y python3-pip \
     && rm -rf /var/lib/apt/lists/*
