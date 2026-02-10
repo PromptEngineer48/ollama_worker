@@ -9,8 +9,8 @@ RUN curl -fsSL https://ollama.com/install.sh | sh
 
 # 2. Install Python Dependencies
 COPY requirements.txt .
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+RUN python3 -m pip install --upgrade pip && \
+    python3 -m pip install --no-cache-dir -r requirements.txt
 
 # 3. Copy Application Code
 COPY handler.py .
@@ -21,4 +21,5 @@ RUN chmod +x start.sh
 
 # 5. Start
 CMD ["./start.sh"]
+
 
