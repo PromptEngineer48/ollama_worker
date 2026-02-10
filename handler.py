@@ -8,7 +8,7 @@ import subprocess
 # CONFIGURATION
 # ------------------------------------------------------------------------------
 OLLAMA_BASE_URL = "http://127.0.0.1:11434"
-DEFAULT_MODEL = "qwen3-coder-next:latest"
+DEFAULT_MODEL = "glm-4.7-flash:latest"
 
 # ------------------------------------------------------------------------------
 # HELPER FUNCTIONS
@@ -127,3 +127,4 @@ print("✅ Ollama is ready!")
 
 if __name__ == "__main__":
     runpod.serverless.start({"handler": handler})
+
